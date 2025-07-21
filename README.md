@@ -9,6 +9,11 @@ This application allows you to track your income, monitor your spending, and mak
 # Documentation
 Read the full [Expense Track App Detail Report](https://github.com/adhishbiju2000/Expense-Track-App-using-Python-Flask/blob/main/Expense%20Track%20App%20Detail%20Report.pdf) for a detailed explanation of the project, including its features, implementation, and design.
 
+## Demo Video
+Watch the complete walkthrough of the application here:  
+[Expense Track App Video Demo](https://drive.google.com/file/d/1KErbkJ5sjNmv6bvZcz4WIqZf6egiwiX8/view)
+
+
 
 ---
 
