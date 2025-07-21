@@ -1,0 +1,175 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2 class="mb-4">Dashboard</h2>
+
+<!-- Update Total Income -->
+<div class="card p-3 mb-4">
+    <form method="POST" action="{{ url_for('dashboard') }}" class="row g-2 align-items-center">
+        <div class="col-md-4">
+            <label for="income" class="form-label">Set Total Income</label>
+            <input type="number" step="0.01" name="income" id="income" class="form-control" value="{{ total_income }}" required>
+        </div>
+        <div class="col-md-2 d-flex align-items-end">
+            <button type="submit" class="btn btn-primary w-100">Save</button>
+        </div>
+    </form>
+</div>
+
+<!-- KPI Cards -->
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <div class="card kpi-card text-center">
+            <i class="bi bi-cash-stack kpi-icon"></i>
+            <h6>Total Income</h6>
+            <p class="kpi-value">₹{{ total_income }}</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card kpi-card text-center">
+            <i class="bi bi-wallet2 kpi-icon"></i>
+            <h6>Total Expense</h6>
+            <p class="kpi-value">₹{{ total_expense }}</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card kpi-card text-center">
+            <i class="bi bi-pie-chart kpi-icon"></i>
+            <h6>Top Category</h6>
+            <p class="kpi-value">{{ top_category }}</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card kpi-card text-center">
+            <i class="bi bi-graph-up-arrow kpi-icon"></i>
+            <h6>Balance</h6>
+            <p class="kpi-value">₹{{ balance }}</p>
+        </div>
+    </div>
+</div>
+
+<!-- Add New Expense -->
+<div class="card p-3 mb-4">
+    <h5>Add Expense</h5>
+    <form method="POST" action="{{ url_for('add_expense') }}" class="row g-2">
+        <div class="col-md-3">
+            <input type="date" name="date" class="form-control" required>
+        </div>
+        <div class="col-md-2">
+            <select name="category" id="category-select" class="form-control">
+                {% for category in categories %}
+                    <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-2">
+            <input type="number" step="0.01" name="amount" placeholder="Amount" class="form-control" required>
+        </div>
+        <div class="col-md-3">
+            <input type="text" name="description" placeholder="Note" class="form-control">
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-success w-100">Add</button>
+        </div>
+    </form>
+</div>
+
+<!-- Category Chips -->
+<h5 class="mb-2">Select Category</h5>
+<div class="d-flex flex-wrap gap-2 mb-4 category-scroll" id="category-chips">
+    {% for category in categories %}
+        <button class="category-chip btn btn-outline-secondary btn-sm rounded-pill" type="button">{{ category }}</button>
+    {% endfor %}
+    <button class="btn btn-outline-primary btn-sm rounded-pill" id="custom-category-btn" type="button">+ Custom</button>
+</div>
+
+<!-- Expenses Table -->
+<h5 class="mb-2">Expenses</h5>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Note</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for expense in expenses %}
+        <tr>
+            <td>{{ expense.date }}</td>
+            <td>{{ expense.category }}</td>
+            <td>₹{{ expense.amount }}</td>
+            <td>{{ expense.description }}</td>
+            <td>
+                <form method="POST" action="{{ url_for('delete_expense', id=expense.id) }}" style="display:inline;">
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script>
+const chipContainer = document.getElementById('category-chips');
+const categorySelect = document.getElementById('category-select');
+
+// Create a chip with events
+function createCategoryChip(name) {
+    const chip = document.createElement('button');
+    chip.className = 'category-chip btn btn-outline-secondary btn-sm rounded-pill';
+    chip.type = 'button';
+    chip.textContent = name;
+
+    chip.addEventListener('click', () => {
+        categorySelect.value = name;
+    });
+
+    chip.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        if (confirm(`Delete category "${name}"?`)) {
+            chip.remove();
+            [...categorySelect.options].forEach(opt => {
+                if (opt.value === name) opt.remove();
+            });
+        }
+    });
+
+    return chip;
+}
+
+// Initialize existing chips
+chipContainer.querySelectorAll('.category-chip').forEach(chip => {
+    const name = chip.textContent;
+    chip.addEventListener('click', () => categorySelect.value = name);
+    chip.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        if (confirm(`Delete category "${name}"?`)) {
+            chip.remove();
+            [...categorySelect.options].forEach(opt => {
+                if (opt.value === name) opt.remove();
+            });
+        }
+    });
+});
+
+// Add custom category button
+document.getElementById('custom-category-btn').addEventListener('click', function () {
+    const customCategory = prompt("Enter your custom category:");
+    if (customCategory) {
+        const newChip = createCategoryChip(customCategory);
+        chipContainer.insertBefore(newChip, this);
+
+        const newOption = document.createElement('option');
+        newOption.value = customCategory;
+        newOption.textContent = customCategory;
+        categorySelect.appendChild(newOption);
+
+        categorySelect.value = customCategory;
+    }
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Expense Track Application </title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+    /* Gradient background */
+.navbar-gradient {
+  background: linear-gradient(to right, #631fcfff, #0d6efd, #11b1daff, #631fcfff);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Logo */
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white !important;
+}
+
+/* Modern nav links */
+.navbar-nav .nav-link {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white !important;
+  margin-left: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #fff !important;
+  transform: scale(1.05);
+}
+
+/* Toggler cleanup */
+.navbar-toggler {
+  border: none !important;
+  background: transparent !important;
+  padding: 0;
+}
+
+.navbar-toggler:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.navbar-toggler-icon-custom {
+  font-size: 1.8rem;
+  color: white;
+}
+
+/* Layout Fix: Make footer sticky at bottom */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+  .footer {
+      margin-top: auto;
+      width: 100vw;
+      background: linear-gradient(to right, #631fcf, #0d6efd, #11b1da, #631fcf);
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      height:70px
+    }
+
+
+    </style>
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-gradient">
+      <div class="container">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">Expense Track App</a>
+
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi bi-list navbar-toggler-icon-custom"></i>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" href="/">Home</a>
+            <a class="nav-link" href="/features">Features</a>
+            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" href="/signup">Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+<br><br>
+
+
+<br><br>
+  <div class="container mt-5">
+  <div class="row">
+<h1>Features</h1>
+   <!-- Feature Card 1: Track Spending -->
+<div class="col-sm-6 mb-4"><br><br>
+  <div class="card shadow text-center">
+    <div class="card-body">
+      <h5 class="card-title">Track Every Rupee</h5>
+      <p class="card-text">Gain clarity over your finances by tracking every expense—no matter how small. Visualize your daily, weekly, and monthly spending with ease.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Feature Card 2: Set Budgets -->
+<div class="col-sm-6 mb-4"><br><br>
+  <div class="card shadow text-center">
+    <div class="card-body">
+      <h5 class="card-title">Set Smart Budgets</h5>
+      <p class="card-text">Create custom budget goals for categories like shopping, food, and travel. Get real-time alerts as you approach limits and keep your spending in check effortlessly.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Feature Card 3: Utilization Insights -->
+<div class="col-sm-6 mb-4">
+  <div class="card shadow text-center">
+    <div class="card-body">
+      <h5 class="card-title">Utilization Insights</h5>
+      <p class="card-text">Analyze how effectively you're using your income with AI-powered insights. Get recommendations to improve spending habits and increase your savings rate.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Feature Card 4: Secure & Smart -->
+<div class="col-sm-6 mb-5">
+  <div class="card shadow text-center">
+    <div class="card-body">
+      <h5 class="card-title">Secure & Smart</h5>
+      <p class="card-text">With bank-level encryption and a privacy-first approach, SavUtil ensures your financial data is always safe. Enjoy smart features without compromising security.</p>
+    </div>
+  </div>
+</div>
+
+</div> <!-- Close row -->
+</div> <!-- Close container -->
+
+<!-- Footer -->
+<footer class="footer text-white text-center py-3">
+  <div class="container-fluid">
+    <small>© 2025 Expense Track App | Built by Adhish Biju</small>
+  </div>
+</footer>
+
+
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
