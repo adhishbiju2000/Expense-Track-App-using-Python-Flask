@@ -1,0 +1,40 @@
+body {
+    background: #f8f9fa;
+    margin: 0;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #631fcf, #0d6efd, #11b1da, #631fcf);
+    color: white;
+}
+.sidebar h4 { font-weight: bold; }
+.sidebar .nav-link { color: white; margin: 0.3rem 0; border-radius: 6px; padding: 0.5rem 1rem; }
+.sidebar .nav-link:hover, .sidebar .nav-link.active { background: rgba(255,255,255,0.2); }
+
+/* KPI Cards */
+.kpi-card { background: white; border-radius: 12px; padding: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.kpi-icon { font-size: 2rem; color: #0d6efd; }
+.kpi-value { font-size: 1.2rem; font-weight: 700; }
+
+/* Category Chips */
+.category-chip {
+    border: none;
+    background: linear-gradient(to right, #0d6efd, #11b1da);
+    color: white;
+    border-radius: 50px;
+    padding: 0.5rem 1.2rem;
+    margin-right: 0.5rem;
+    white-space: nowrap;
+    transition: transform 0.2s;
+}
+.category-chip:hover { transform: translateY(-2px); }
+
+/* Tables */
+.table thead { background: linear-gradient(to right, #631fcf, #0d6efd); color: white; }
+
+/* Buttons */
+.btn-primary { background: linear-gradient(to right, #0d6efd, #11b1da); border: none; }
+.btn-primary:hover { background: linear-gradient(to right, #11b1da, #0d6efd); }
