@@ -1,6 +1,7 @@
 # Expense Track App
 
 A simple yet powerful **web-based Expense Tracker** built using **Python Flask** to help users manage their personal finances more effectively.  
+
 This application allows you to track your income, monitor your spending, and make better financial decisions with ease.
 
 ---
