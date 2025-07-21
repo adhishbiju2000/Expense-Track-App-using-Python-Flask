@@ -28,13 +28,31 @@ Read the full [Expense Track App Detail Report](https://github.com/adhishbiju200
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
+```
 Expense-Track-App/
 │
-├── app.py # Main Flask application
-├── templates/ # HTML templates (Jinja2)
-├── static/ # CSS, JS, and images
-├── database/ # SQLite database files
-├── docs/ # Full documentation
-└── README.md # Project overview
+├── app.py               # Main Flask application
+├── templates/           # HTML templates (Jinja2)
+├── static/              # CSS, JS, and images
+├── database/            # SQLite database files
+├── docs/                # Full documentation
+└── README.md            # Project overview
+```
+
+
+---
+
+## Disclaimer
+This application is developed for **educational and personal use only**.  
+It does not provide financial advice and does not guarantee the security of sensitive data.  
+Use at your own discretion.
+
+---
+
+## Thanks for Reading
+Thank you for taking the time to explore this project!  
+I truly appreciate your interest and welcome any feedback or suggestions to make this app even better.
+
+
